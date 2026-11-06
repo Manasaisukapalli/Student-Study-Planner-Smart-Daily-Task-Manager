@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Student Study Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div>
+            <h1>📚 Study Planner</h1>
+            <p>Plan Smart, Study Better, Achieve More!</p>
+        </div>
+        <button id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </header>
+
+    <section class="welcome">
+        <h2>Welcome, Student! 👋</h2>
+        <p id="motivation">Small steps every day lead to big results.</p>
+    </section>
+
+    <section class="dashboard">
+        <div class="stat-card">
+            <h3>Total Tasks</h3>
+            <p id="totalTasks">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Completed</h3>
+            <p id="completedTasks">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Pending</h3>
+            <p id="pendingTasks">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Overdue</h3>
+            <p id="overdueTasks">0</p>
+        </div>
+    </section>
+
+    <section class="task-form">
+        <h2>➕ Add New Study Task</h2>
+
+        <input type="text" id="taskInput"
+            placeholder="Enter task name">
+
+        <select id="subjectInput">
+            <option value="">Select Subject</option>
+            <option>Mathematics</option>
+            <option>Computer Science</option>
+            <option>Artificial Intelligence</option>
+            <option>English</option>
+            <option>Other</option>
+        </select>
+
+        <input type="date" id="taskDate">
+
+        <select id="priorityInput">
+            <option value="Low">Low Priority</option>
+            <option value="Medium" selected>Medium Priority</option>
+            <option value="High">High Priority</option>
+        </select>
+
+        <button onclick="addTask()" id="addBtn">Add Task</button>
+    </section>
+
+    <section class="goal-section">
+        <h2>🎯 Daily Study Goal</h2>
+        <input type="number" id="goalInput" min="1" max="24"
+            placeholder="Enter study goal in hours">
+        <button onclick="saveGoal()">Save Goal</button>
+        <p id="goalDisplay">Your daily goal: Not set</p>
+    </section>
+
+    <section class="task-section">
+        <h2>📋 My Study Tasks</h2>
+
+        <input type="text" id="searchInput"
+            placeholder="🔍 Search your tasks..."
+            oninput="displayTasks()">
+
+        <select id="filterInput" onchange="displayTasks()">
+            <option value="All">All Tasks</option>
+            <option value="Pending">Pending Tasks</option>
+            <option value="Completed">Completed Tasks</option>
+            <option value="Overdue">Overdue Tasks</option>
+        </select>
+
+        <div id="taskList"></div>
+    </section>
+
+    <section class="progress-section">
+        <h2>📊 Overall Study Progress</h2>
+
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <p id="progressText">0% Completed</p>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ for Students | Smart Study Planner</p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
